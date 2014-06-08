@@ -2,9 +2,9 @@
 Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: page, builder, stacks, bricks
-Requires at least: beta1.0.0.0
-Tested up to: 1.0.0.0
-Stable tag: 1.0.0.0
+Requires at least: 3.5
+Tested up to: 4.0
+Stable tag: 1.0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.1 = June 8, 2014
+* Added animation to number beside cart when item added
 
 = 1.0.0.0 = May 25, 2014
 * Original release

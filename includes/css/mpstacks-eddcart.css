@@ -28,11 +28,11 @@
 }
 .mp-stacks-eddcart-container .edd-cart .edd-cart-item,
 .mp-stacks-eddcart-container .edd_subtotal,
-.mp-stacks-eddcart-container .edd_checkout,
+.mp-stacks-eddcart-container .mp_stacks_eddcart_checkout_btn_container,
 .mp-stacks-eddcart-container .cart_item.empty{
 	padding:20px;	
 }
-.mp-stacks-eddcart-container .edd_checkout{
+.mp-stacks-eddcart-container .mp_stacks_eddcart_checkout_btn_container{
 	text-align:center;	
 	padding-bottom:0px;
 	border-bottom:none;
@@ -71,4 +71,7 @@
 	font-size:9px;
 	width:10px;
 	height:10px;
+}
+.mp-stacks-eddcart-container .edd_checkout{
+	display:none!important;	
 }

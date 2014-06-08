@@ -53,11 +53,13 @@ function mp_stacks_brick_content_output_eddcart($default_content_output, $mp_sta
 				endforeach;
 				?>
 				<li class="cart_item edd_subtotal"><?php echo __( 'Subtotal:', 'edd' ). " <span class='subtotal'>" . edd_currency_filter( edd_format_amount( edd_get_cart_subtotal() ) ); ?></span></li>
-				<li class="cart_item edd_checkout"><a class="button mp-stacks-eddcart-checkout-btn" target="_parent" href="<?php echo edd_get_checkout_uri(); ?>"><?php _e( 'Checkout', 'edd' ); ?></a></li>
+				<li class="cart_item mp_stacks_eddcart_checkout_btn_container"><a class="button mp-stacks-eddcart-checkout-btn" target="_parent" href="<?php echo edd_get_checkout_uri(); ?>"><?php _e( 'Checkout', 'edd' ); ?></a></li>
 				<?php
 	
 			else :
 				edd_get_template_part( 'widget', 'cart-empty' );
+				
+				?><li class="cart_item mp_stacks_eddcart_checkout_btn_container"><a class="button mp-stacks-eddcart-checkout-btn" target="_parent" href="<?php echo edd_get_checkout_uri(); ?>"><?php _e( 'Checkout', 'edd' ); ?></a></li><?php
 			endif;
 		?>
 		<!--/dynamic-cached-content-->
@@ -80,15 +82,9 @@ add_filter('mp_stacks_brick_content_output', 'mp_stacks_brick_content_output_edd
  * @since    1.0.0
  * @return   void
  */
-function mp_stacks_brick_content_output_css_eddcart( $css_output, $brick_id ){
+function mp_stacks_brick_content_output_css_eddcart( $css_output, $brick_id, $first_content_type, $second_content_type ){
 	
-	//First Media Type
-	$mp_stacks_first_content_type = get_post_meta($brick_id, 'brick_first_content_type', true);
-	
-	//Second Media Type
-	$mp_stacks_second_content_type = get_post_meta($brick_id, 'brick_second_content_type', true);
-	
-	if ( $mp_stacks_first_content_type != 'eddcart' && $mp_stacks_second_content_type != 'eddcart' ){
+	if ( $first_content_type != 'eddcart' && $second_content_type != 'eddcart' ){
 		return $css_output;	
 	}
 	
@@ -144,4 +140,4 @@ function mp_stacks_brick_content_output_css_eddcart( $css_output, $brick_id ){
 	
 	return $css_eddcart_output . $css_output;
 }
-add_filter('mp_brick_additional_css', 'mp_stacks_brick_content_output_css_eddcart', 10, 3);
+add_filter('mp_brick_additional_css', 'mp_stacks_brick_content_output_css_eddcart', 10, 4);

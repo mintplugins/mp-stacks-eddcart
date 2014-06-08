@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + EddCart
 Plugin URI: http://mintplugins.com
 Description: This is an addon to the MP Stacks plugin which displays a Shopping cart pop-open from Easy Digital Downloads
-Version: 1.0.0.0
+Version: 1.0.0.1
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: mp_stacks_eddcart
