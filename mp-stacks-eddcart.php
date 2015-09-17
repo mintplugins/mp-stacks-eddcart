@@ -142,7 +142,7 @@ function mp_stacks_eddcart_include_files(){
 		/**
 		 * Enqueue Scripts
 		 */
-		require( MP_STACKS_EDDCART_PLUGIN_DIR . 'includes/misc-functions/enqueue-scripts.php' );
+		//require( MP_STACKS_EDDCART_PLUGIN_DIR . 'includes/misc-functions/admin-enqueue-scripts.php' );
 		
 		/**
 		 * Hook callback for video background
@@ -160,10 +160,14 @@ function mp_stacks_eddcart_include_files(){
 		require( MP_STACKS_EDDCART_PLUGIN_DIR . 'includes/metaboxes/mp-stacks-eddcart-meta/mp-stacks-eddcart-meta.php' );
 		
 		/**
-		 * Functions which assist with the creation of templates using this add-on
+		 * Add this add on to the list of Active MP Stacks Add Ons
 		 */
 		if ( function_exists('mp_stacks_developer_textdomain') ){
-			require( MP_STACKS_EDDCART_PLUGIN_DIR . 'includes/misc-functions/stack-template-functions.php' );
+			function mp_stacks_eddcart_add_active( $required_add_ons ){
+				$required_add_ons['mp_stacks_eddcart'] = 'MP Stacks + EDDCart';
+				return $required_add_ons;
+			}
+			add_filter( 'mp_stacks_active_add_ons', 'mp_stacks_eddcart_add_active' );
 		}
 		
 	}
