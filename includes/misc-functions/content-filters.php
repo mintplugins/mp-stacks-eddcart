@@ -7,7 +7,7 @@
  * @package    MP Stacks EddCart
  * @subpackage Functions
  *
- * @copyright  Copyright (c) 2014, Mint Plugins
+ * @copyright  Copyright (c) 2015, Mint Plugins
  * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author     Philip Johnston
  */
@@ -25,7 +25,10 @@ function mp_stacks_brick_content_output_eddcart($default_content_output, $mp_sta
 	if ($mp_stacks_content_type != 'eddcart'){
 		return $default_content_output;
 	}
-
+	
+	//EDD Cart JS
+	wp_enqueue_script( 'mp_stacks_eddcart_js', plugins_url('js/mpstacks-eddcart.js', dirname(__FILE__)), array('jquery'), false, true, MP_STACKS_EDDCART_VERSION );	
+	
 	ob_start();
 	
 	$display = 'style="display:none;"';
@@ -87,6 +90,12 @@ function mp_stacks_brick_content_output_css_eddcart( $css_output, $brick_id, $fi
 	if ( $first_content_type != 'eddcart' && $second_content_type != 'eddcart' ){
 		return $css_output;	
 	}
+	
+	//Enqueue Font Awesome CSS
+	wp_enqueue_style( 'fontawesome', plugins_url( '/fonts/font-awesome-4.0.3/css/font-awesome.css', dirname( __FILE__ ) ), array(), MP_STACKS_EDDCART_VERSION );
+	
+	//EDD Cart css
+	wp_enqueue_style( 'mp_stacks_eddcart_js', plugins_url('css/mpstacks-eddcart.css', dirname(__FILE__) ), array(), MP_STACKS_EDDCART_VERSION);	
 	
 	//Get icon specs
 	$eddcart_icon_color = get_post_meta( $brick_id, 'eddcart_icon_color', true );
